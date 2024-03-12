@@ -29,7 +29,23 @@ function getMin(arr, compare) {
 // equals(a1, a2)
 // if a1 === a2 ret true
 // else ret false
+function equals (a1, a2){
+  return a1 === a2
+}
+
 function search(arr, equals) {
+  let equal = arr[0]
+  let i = 1
+
+  while(i < arr.length){
+    if (equals(arr[0],arr[i])){
+      equal = arr[i];
+    }
+    
+    i++;
+  }
+
+  return equal
 
 }
 
@@ -40,6 +56,12 @@ function searchByKeyValue(arr, key, value) {
     }
   }
 }
+
+function equalYears(a1, a2){
+  return a1.year === a2.year
+}
+
+
 
 function compareByGenres(album1, album2) {
   const n1 = album1.genres.length;
@@ -67,7 +89,7 @@ export function getAlbumWithFewestGenres(albums) {
 }
 
 export function getAlbumWithYearOf(albums, byYear) {
-  const album = searchByKeyValue(albums, 'year', byYear);
+  const album = search(albums, equalYears);
   console.log('By Year', album.title);
 }
 
